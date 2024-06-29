@@ -1,0 +1,23 @@
+# ninja log v6
+4	35	7412487109097382	CMakeFiles/clean.additional	a5da6556a49f9206
+9	225	7412579612437899	C:/Users/kanchen/Documents/Hotel/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/Hotel_autogen/timestamp	9b1de78617f55d6f
+35	53	7412487109439285	clean	3a9a77ec1a46e820
+9	225	7412579612437899	Hotel_autogen/timestamp	9b1de78617f55d6f
+9	225	7412579612437899	Hotel_autogen/mocs_compilation.cpp	9b1de78617f55d6f
+9	225	7412579612437899	C:/Users/kanchen/Documents/Hotel/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/Hotel_autogen/mocs_compilation.cpp	9b1de78617f55d6f
+795	1449	7412487118831626	CMakeFiles/Hotel.dir/Room.cpp.obj	5503f232cfad09f7
+525	2147	7412569893991125	CMakeFiles/Hotel.dir/Hotel_autogen/mocs_compilation.cpp.obj	ee72a9eefbc0411e
+527	2148	7412569894011353	CMakeFiles/Hotel.dir/main.cpp.obj	b3c26e3590cf7a9f
+225	2818	7412579614611011	CMakeFiles/Hotel.dir/mainwindow.cpp.obj	b79f5753e953eaed
+2818	3170	7412579640518938	Hotel.exe	37c2a3e501429400
+4	34	7412587354111287	CMakeFiles/clean.additional	a5da6556a49f9206
+34	51	7412587354423708	clean	3a9a77ec1a46e820
+8	638	7412587361314056	Hotel_autogen/timestamp	9b1de78617f55d6f
+8	638	7412587361314056	Hotel_autogen/mocs_compilation.cpp	9b1de78617f55d6f
+8	638	7412587361314056	C:/Users/kanchen/Documents/Hotel/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/Hotel_autogen/timestamp	9b1de78617f55d6f
+8	638	7412587361314056	C:/Users/kanchen/Documents/Hotel/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/Hotel_autogen/mocs_compilation.cpp	9b1de78617f55d6f
+644	1025	7412587362050422	CMakeFiles/Hotel.dir/Room.cpp.obj	5503f232cfad09f7
+638	2246	7412587362029141	CMakeFiles/Hotel.dir/Hotel_autogen/mocs_compilation.cpp.obj	ee72a9eefbc0411e
+640	2266	7412587362050422	CMakeFiles/Hotel.dir/main.cpp.obj	b3c26e3590cf7a9f
+642	3284	7412587362050422	CMakeFiles/Hotel.dir/mainwindow.cpp.obj	b79f5753e953eaed
+3284	3646	7412587388428040	Hotel.exe	37c2a3e501429400
