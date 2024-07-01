@@ -274,7 +274,88 @@ void RoomDetail::on_loadBtn()
         setInfoToUI(it->second);
     }
 }
+void RoomDetail::on_OKBtn()
+{
+    switch (mState)
+    {
+    case ForAdd:
+        getInfoFromUI();
+        if(mRoomMap.find(mRoom.getRoomNumber()) != mRoomMap.end())
+        {
+            QMessageBox msgBox;
+            std::string roomNumberStr = mRoom.getRoomNumber();
+            QString roomNumber = QString::fromStdString(roomNumberStr); // 将 std::string 转换为 QString
 
+            QString msg = "房间号" + roomNumber + "已经存在！";
+
+            msgBox.setText(msg);
+            msgBox.setWindowTitle("提示");
+            msgBox.setIcon(QMessageBox::Information);
+            msgBox.addButton("确认", QMessageBox::AcceptRole);
+            msgBox.exec();
+        }
+        else
+        {
+            mRoomMap[mRoom.getRoomNumber()] = mRoom;
+            this->hide();
+        }
+        break;
+    case ForDelete:
+        {
+            mRoom.setRoomNumber(uiRoomDetail->roomNumL->text().toStdString());
+            auto it = mRoomMap.find(mRoom.getRoomNumber());
+            if(it == mRoomMap.end())
+            {
+                QMessageBox msgBox;
+                std::string roomNumberStr = mRoom.getRoomNumber();
+                QString roomNumber = QString::fromStdString(roomNumberStr); // 将 std::string 转换为 QString
+
+                QString msg = "房间号" + roomNumber + "不存在！";
+
+                msgBox.setText(msg);
+                msgBox.setWindowTitle("提示");
+                msgBox.setIcon(QMessageBox::Information);
+                msgBox.addButton("确认", QMessageBox::AcceptRole);
+                msgBox.exec();
+            }
+            else
+            {
+                mRoomMap.erase(it);
+                this->hide();
+            }
+        }
+        break;
+    case ForUpdate:
+        {
+            mRoom.setRoomNumber(uiRoomDetail->roomNumL->text().toStdString());
+            auto it = mRoomMap.find(mRoom.getRoomNumber());
+            if(it == mRoomMap.end())
+            {
+                QMessageBox msgBox;
+                std::string roomNumberStr = mRoom.getRoomNumber();
+                QString roomNumber = QString::fromStdString(roomNumberStr); // 将 std::string 转换为 QString
+
+                QString msg = "房间号" + roomNumber + "不存在！";
+
+                msgBox.setText(msg);
+                msgBox.setWindowTitle("提示");
+                msgBox.setIcon(QMessageBox::Information);
+                msgBox.addButton("确认", QMessageBox::AcceptRole);
+                msgBox.exec();
+            }
+            else
+            {
+                getInfoFromUI();
+                mRoomMap[mRoom.getRoomNumber()] = mRoom;
+                this->hide();
+            }
+        }
+        break;
+    default:
+        break;
+    }
+
+}
 void RoomDetail::on_CancelBtn()
 {
     this->hide();
