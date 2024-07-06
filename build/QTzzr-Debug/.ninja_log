@@ -1,0 +1,16 @@
+# ninja log v5
+5	340	7413265941719231	Hotel_autogen/timestamp	d2472d70596ec69c
+5	340	7413265941719231	Hotel_autogen/mocs_compilation.cpp	d2472d70596ec69c
+5	340	7413265941719231	D:/useful/Hotel(1)/Hotel/build/QTzzr-Debug/Hotel_autogen/timestamp	d2472d70596ec69c
+5	340	7413265941719231	D:/useful/Hotel(1)/Hotel/build/QTzzr-Debug/Hotel_autogen/mocs_compilation.cpp	d2472d70596ec69c
+356	1099	7413265949995236	CMakeFiles/Hotel.dir/Room.cpp.obj	99fde548b54b07e0
+349	1953	7413265958549572	CMakeFiles/Hotel.dir/main.cpp.obj	6fe20b81cc5a78e9
+345	1956	7413265958559578	CMakeFiles/Hotel.dir/Hotel_autogen/mocs_compilation.cpp.obj	e7b7bbf2520f3781
+352	2748	7413265966474554	CMakeFiles/Hotel.dir/mainwindow.cpp.obj	5e1316d85caf55c4
+2750	3259	7413265971278320	Hotel.exe	8cc5833bb47b2d89
+111	541	7419339940677672	Hotel_autogen/timestamp	d2472d70596ec69c
+111	541	7419339940677672	Hotel_autogen/mocs_compilation.cpp	d2472d70596ec69c
+111	541	7419339940677672	D:/useful/Hotel(1)/Hotel/build/QTzzr-Debug/Hotel_autogen/timestamp	d2472d70596ec69c
+111	541	7419339940677672	D:/useful/Hotel(1)/Hotel/build/QTzzr-Debug/Hotel_autogen/mocs_compilation.cpp	d2472d70596ec69c
+548	5223	7419339998414026	CMakeFiles/Hotel.dir/mainwindow.cpp.obj	5e1316d85caf55c4
+5223	5900	7419340004261993	Hotel.exe	8cc5833bb47b2d89

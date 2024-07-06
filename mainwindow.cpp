@@ -14,17 +14,18 @@
 
 const static string ROOMFILE = "rooms.dat";
 map<string, Room> mRoomMap;
-void serializeMap(const std::map<std::string, Room>& roomMap, const std::string& filename) {
+void serializeMap(const std::map<std::string, Room>& roomMap, const std::string& filename) {//利用序列化来实现内存中写入数据
     // 删除源文件
     std::filesystem::remove(filename);
 
     std::ofstream outFile(filename, std::ios::binary);
+    //输出文件
     if (!outFile) {
         throw std::runtime_error("Could not open file for writing.");
     }
 
     if (outFile.is_open()) {
-        size_t mapSize = roomMap.size();
+        size_t mapSize = roomMap.size();//获取map中元素数
         outFile.write(reinterpret_cast<const char*>(&mapSize), sizeof(mapSize));
         for (const auto& pair : roomMap) {
             size_t keyLength = pair.first.size();
@@ -38,6 +39,7 @@ void serializeMap(const std::map<std::string, Room>& roomMap, const std::string&
 
 void deserializeMap(std::map<std::string, Room>& roomMap, const std::string& filename) {
     // Check if the file exists
+    //反序列化，将序列化的数据流转回原始对象
     if (!std::filesystem::exists(filename)) {
        return; // File does not exist, return early
     }
@@ -59,14 +61,16 @@ void deserializeMap(std::map<std::string, Room>& roomMap, const std::string& fil
 }
 
 MainWindow::MainWindow(QWidget *parent)
+    //构造函数，初始化各对象
     : QWidget(parent)
     , ui(new Ui::MainWindow)
     , roomManagerWindow(new RoomManager(this))
     , roomListWindow(new RoomList(this))
 {
     void keyPressEvent(QKeyEvent *event);
+    //各按键功能
     ui->setupUi(this);
-    roomManagerWindow->setWindowFlags(Qt::Window);
+    roomManagerWindow->setWindowFlags(Qt::Window);//设置窗口属性，为一个新窗口
     roomManagerWindow->hide();
 
     roomListWindow->setWindowFlags(Qt::Window);
@@ -79,16 +83,16 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->checkBtn, &QPushButton::clicked, this, &MainWindow::on_openRoomList);
 }
 
-MainWindow::~MainWindow()
+MainWindow::~MainWindow()//析构函数，存储数据并清除ui类内存
 {
     storeData(ROOMFILE);
     delete ui;
 }
 
-void MainWindow::loadData(const string &filename)
+void MainWindow::loadData(const string &filename)//加载数据
 {
     try {
-        deserializeMap(mRoomMap, filename);
+        deserializeMap(mRoomMap, filename);//反序列化
         std::cout << "Map deserialized from " << filename << std::endl;
 
         // 输出反序列化结果
@@ -98,7 +102,7 @@ void MainWindow::loadData(const string &filename)
     } catch (const std::exception& ex) {
         std::cerr << "Error: " << ex.what() << std::endl;
     }
-
+    //异常判定
 }
 
 void MainWindow::storeData(const string &filename)
@@ -109,6 +113,7 @@ void MainWindow::storeData(const string &filename)
 
         serializeMap(mRoomMap, filename);
         std::cout << "Map serialized to " << filename << std::endl;
+        //输出序列化结果
     } catch (const std::exception& ex) {
         std::cerr << "Error: " << ex.what() << std::endl;
     }
@@ -157,13 +162,13 @@ RoomManager::RoomManager(QWidget *parent)
     connect(uiRoomManager->addRoomBtn, &QPushButton::clicked, this, &RoomManager::on_openAddRoom);
     connect(uiRoomManager->delRoomBtn, &QPushButton::clicked, this, &RoomManager::on_openDelRoom);
     connect(uiRoomManager->updateRoomBtn, &QPushButton::clicked, this, &RoomManager::on_openUpdateRoom);
-}
+}//客房管理按钮槽
 
 RoomManager::~RoomManager()
 {
-    delete uiRoomManager;
+    delete uiRoomManager;//析构
 }
-void RoomManager::on_openAddRoom()
+void RoomManager::on_openAddRoom()//添加客房
 {
     roomDetailWindow->setState(ForAdd);
     roomDetailWindow->setOperateLabel("添加");
@@ -171,7 +176,7 @@ void RoomManager::on_openAddRoom()
     roomDetailWindow->hideInfoLabel();
     roomDetailWindow->show();
 }
-void RoomManager::on_openDelRoom()
+void RoomManager::on_openDelRoom()//删除客房
 {
     roomDetailWindow->setState(ForDelete);
     roomDetailWindow->setOperateLabel("删除");
@@ -179,7 +184,7 @@ void RoomManager::on_openDelRoom()
     roomDetailWindow->showInfoLabel();
     roomDetailWindow->show();
 }
-void RoomManager::on_openUpdateRoom()
+void RoomManager::on_openUpdateRoom()//更新客房数据
 {
     roomDetailWindow->setState(ForUpdate);
     roomDetailWindow->setOperateLabel("更新");
@@ -208,7 +213,7 @@ RoomDetail::~RoomDetail()
     delete uiRoomDetail;
 }
 
-void RoomDetail::cleanUI()
+void RoomDetail::cleanUI()//释放内存
 {
     uiRoomDetail->roomNumL->clear();
     uiRoomDetail->roomSizeL->clear();
@@ -227,7 +232,7 @@ void RoomDetail::getInfoFromUI()
 
 }
 
-void RoomDetail::setInfoToUI(const Room& iroom)
+void RoomDetail::setInfoToUI(const Room& iroom)//将信息传入UI
 {
     uiRoomDetail->roomNumL->setText(QString::fromStdString(iroom.getRoomNumber()));
     uiRoomDetail->roomSizeL->setText(QString::number(iroom.getRoomArea()));
@@ -244,7 +249,7 @@ void RoomDetail::showInfoLabel()
 {
     uiRoomDetail->infoLabel->show();
 }
-void RoomDetail::setOperateLabel(const QString &str)
+void RoomDetail::setOperateLabel(const QString &str)//设置标签内容
 {
     uiRoomDetail->operateLabel->setText(str);
 }

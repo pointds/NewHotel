@@ -1,0 +1,8 @@
+D:/useful/Hotel(1)/Hotel/build/QTzzr-Debug/CMakeFiles/Hotel.dir
+D:/useful/Hotel(1)/Hotel/build/QTzzr-Debug/CMakeFiles/edit_cache.dir
+D:/useful/Hotel(1)/Hotel/build/QTzzr-Debug/CMakeFiles/rebuild_cache.dir
+D:/useful/Hotel(1)/Hotel/build/QTzzr-Debug/CMakeFiles/list_install_components.dir
+D:/useful/Hotel(1)/Hotel/build/QTzzr-Debug/CMakeFiles/install.dir
+D:/useful/Hotel(1)/Hotel/build/QTzzr-Debug/CMakeFiles/install/local.dir
+D:/useful/Hotel(1)/Hotel/build/QTzzr-Debug/CMakeFiles/Hotel_autogen_timestamp_deps.dir
+D:/useful/Hotel(1)/Hotel/build/QTzzr-Debug/CMakeFiles/Hotel_autogen.dir
